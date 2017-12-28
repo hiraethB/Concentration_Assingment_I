@@ -48,16 +48,19 @@ struct Concentration {
                     }
                 }
                 cards[index].isFaceUp = true
+                flipCount += 1
+                start = Date()
             } else { // единственная карта лицом вверх
+                if indexOfOneAndOnlyFaceUpCard != index {
+                    flipCount += 1
+                    start = Date()
+                }
                 indexOfOneAndOnlyFaceUpCard = index
             }
-            flipCount += 1
-            start = Date()
         }
     }
     // заполнение массива cards = [Card]
     init(numberOfPairsOfCards: Int) {
-        print(numberOfPairsOfCards) // отладка
         for _ in 1...numberOfPairsOfCards {
             let card = Card()
             cards += [card,card]
