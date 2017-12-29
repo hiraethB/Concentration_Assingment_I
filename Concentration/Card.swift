@@ -20,7 +20,7 @@ struct Card: Hashable {
     
     var isFaceUp = false // флаг карта лицом вверх
     var isMatched = false // флаг совпадения
-    var shownFace: Bool? = nil // флаг засветки карты
+    var shownFace: Bool? // флаг засветки карты
     var identifier: Int
     
     private static var identifierFactory = 0
