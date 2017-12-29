@@ -54,8 +54,8 @@ struct Concentration {
                 if indexOfOneAndOnlyFaceUpCard != index {
                     flipCount += 1
                     start = Date()
+                    indexOfOneAndOnlyFaceUpCard = index
                 }
-                indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
