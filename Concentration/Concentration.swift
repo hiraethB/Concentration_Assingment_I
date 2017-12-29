@@ -55,6 +55,8 @@ struct Concentration {
                     flipCount += 1
                     start = Date()
                     indexOfOneAndOnlyFaceUpCard = index
+                } else {
+                    cards[index].shownFace = false
                 }
             }
         }
