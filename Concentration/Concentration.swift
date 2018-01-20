@@ -28,7 +28,7 @@ struct Concentration {
     private var start = Date()
     
     mutating func chooseCard(at index: Int) {
-        if !cards[index].isMatched {
+        if !cards[index].isMatched, indexOfOneAndOnlyFaceUpCard != index {
             cards[index].shownFace != nil ? (cards[index].shownFace = true) : (cards[index].shownFace = false)
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 // 2 карты лицом вверх
@@ -48,17 +48,11 @@ struct Concentration {
                     }
                 }
                 cards[index].isFaceUp = true
-                flipCount += 1
-                start = Date()
             } else { // единственная карта лицом вверх
-                if indexOfOneAndOnlyFaceUpCard != index {
-                    flipCount += 1
-                    start = Date()
-                    indexOfOneAndOnlyFaceUpCard = index
-                } else {
-                    cards[index].shownFace = false
-                }
+                indexOfOneAndOnlyFaceUpCard = index
             }
+            flipCount += 1
+            start = Date()
         }
     }
     // заполнение массива cards = [Card]
